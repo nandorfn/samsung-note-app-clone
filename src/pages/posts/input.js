@@ -1,10 +1,28 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import ArrowBackIosSharpIcon from '@mui/icons-material/ArrowBackIosSharp';
 import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
 import AttachFileRoundedIcon from '@mui/icons-material/AttachFileRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
+import { FloatingDoneButtonSize } from '../../../components/FloatingButton';
 
 export default function inputForm() {
+
+    const [input, setInput] = useState({
+    title:"",
+    content: ""
+    });
+    
+    
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        
+        setInput(prevNote => {
+            return {
+            ...prevNote,
+            [name]: value}
+        });
+    };
 
     return (
         <>
@@ -14,7 +32,7 @@ export default function inputForm() {
                         <Link href="/">
                             <ArrowBackIosSharpIcon />
                         </Link>
-                        <input type="text" className='p-2 ml-2 w-full bg-[#171717]' placeholder='Judul'></input>
+                        <input name='title' onChange={handleChange} type="text" className='p-2 ml-2 w-full bg-[#171717]' placeholder='Judul'></input>
                     </div>
                     <div className='flex items-center justify-end gap-4'>
                         <AutoStoriesRoundedIcon />
@@ -26,9 +44,11 @@ export default function inputForm() {
                 <div class="border-b-2 border-[#171717] ..."></div>
                 
                 <div className='flex items-center'>
-                    <textarea rows={100} type="textarea" className='m-4 w-full pb-100 bg-black outline-none'></textarea>
+                    <textarea name='content' onChange={handleChange} rows={100} type="textarea" className='m-4 w-full pb-100 bg-black outline-none'></textarea>
                 </div>
             </form>
+            
+            <FloatingDoneButtonSize />
         </>
     );
 }
