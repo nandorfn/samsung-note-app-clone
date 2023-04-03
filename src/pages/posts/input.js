@@ -6,7 +6,7 @@ import AttachFileRoundedIcon from '@mui/icons-material/AttachFileRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import { FloatingDoneButtonSize } from '../../../components/FloatingButton';
 
-export default function inputForm() {
+export default function inputForm(props) {
 
     const [input, setInput] = useState({
     title:"",
@@ -23,6 +23,16 @@ export default function inputForm() {
             [name]: value}
         });
     };
+    
+    const submitNote = (event) => {
+        props.onAdd(input);
+        setInput({
+            title: "",
+            content: ""
+        });
+        // event.preventDefault();
+        
+    };
 
     return (
         <>
@@ -32,7 +42,7 @@ export default function inputForm() {
                         <Link href="/">
                             <ArrowBackIosSharpIcon />
                         </Link>
-                        <input name='title' onChange={handleChange} type="text" className='p-2 ml-2 w-full bg-[#171717]' placeholder='Judul'></input>
+                        <input name='title' onChange={handleChange} type="text" className='p-2 ml-2 w-full bg-[rgb(0,0,0)] ' placeholder='Judul' value={input.title}></input>
                     </div>
                     <div className='flex items-center justify-end gap-4'>
                         <AutoStoriesRoundedIcon />
@@ -44,11 +54,14 @@ export default function inputForm() {
                 <div class="border-b-2 border-[#171717] ..."></div>
                 
                 <div className='flex items-center'>
-                    <textarea name='content' onChange={handleChange} rows={100} type="textarea" className='m-4 w-full pb-100 bg-black outline-none'></textarea>
+                    <textarea name='content' onChange={handleChange} rows={100} type="textarea" className='m-4 w-full pb-100 bg-black outline-none' value={input.content}></textarea>
                 </div>
+                <Link href='/'>
+                <button onClick={submitNote}>Add</button>
+                </Link>
             </form>
             
-            <FloatingDoneButtonSize />
+            <FloatingDoneButtonSize onClick={submitNote} />
         </>
     );
 }

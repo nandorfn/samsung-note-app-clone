@@ -19,12 +19,10 @@ export default function FloatingActionButtonSize() {
 
 export function FloatingDoneButtonSize() {
     return (
-    <Link href='/'>
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
             <Fab className='fixed bottom-4 right-4 bg-[#171717] z-10' color="warning" aria-label="add">
                 <CheckIcon />
             </Fab>
         </Box>
-        </Link>
     );
 }
