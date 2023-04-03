@@ -17,6 +17,7 @@ export default function Home() {
     });
   }
 
+
   <InputForm onAdd={addNote} className="styles.hidden" />
 
   return (
