@@ -1,5 +1,4 @@
-
-
+import Navbar from './Navbar';
 import ListMenu from './ListMenu';
 import { useState, useEffect } from 'react';
 
@@ -11,9 +10,10 @@ export default function BarMenu(props) {
     }, [props.showPopup]);
 
     function closePopup() {
-        setShowPopup(false);
+        setShowPopup(!true);
         props.onClose();
     }
+    console.log("cek = " + showPopup)
 
     return (
         <>

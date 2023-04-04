@@ -4,11 +4,11 @@ import Navbar from '../../components/Navbar'
 import Note from '../../components/Note'
 import BarMenu from '../../components/BarMenu'
 import styles from '@/styles/Home.module.css'
-import FloatingActionButtonSize from '../../components/FloatingButton'
+
 import InputForm from './posts/input'
 
 
-export default function Home() {
+export default function Home(props) {
   const [notes, setNotes] = useState([]);
 
   function addNote(newNote) {
@@ -34,8 +34,8 @@ export default function Home() {
           />
         );
       })}
+      
 
-      <FloatingActionButtonSize />
 
     </>
   )
