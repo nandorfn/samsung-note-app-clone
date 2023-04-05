@@ -3,13 +3,13 @@ import Header from '../../components/Header'
 import Navbar from '../../components/Navbar'
 import Note from '../../components/Note'
 import BarMenu from '../../components/BarMenu'
-import styles from '@/styles/Home.module.css'
-
-import InputForm from './posts/input'
+import InputForm from '../../components/input'
+import EditButton from '../../components/EditButton'
 
 
 export default function Home(props) {
   const [notes, setNotes] = useState([]);
+  const notesLength = notes.length;
 
   function addNote(newNote) {
     setNotes(prevNotes => {
@@ -17,14 +17,23 @@ export default function Home(props) {
     });
   }
 
+  const [isClicked, setIsClicked] = useState(false);
+  const [showInput, setShowInput] = useState(false);
+  function toggleInput() {
+    setShowInput(!showInput);
+  }
+  function handleClick() {
+    setIsClicked(true);
+  }
 
-  <InputForm onAdd={addNote} className="styles.hidden" />
+
 
   return (
     <>
       <BarMenu />
-      <Header />
+      <Header length={notesLength} />
       <Navbar />
+      <InputForm showInput={showInput} onClose={() => setShowInput(false)} onClick={handleClick} onAdd={addNote} />
       {notes.map((noteItem, index) => {
         return (
           <Note
@@ -35,6 +44,9 @@ export default function Home(props) {
         );
       })}
       
+    <EditButton toggle={toggleInput}/>
+
+
 
 
     </>
