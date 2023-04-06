@@ -5,10 +5,23 @@ import CheckIcon from '@mui/icons-material/CheckCircleRounded';
 
 
 export function FloatingDoneButtonSize() {
+    const fabStyle = {
+        position: 'fixed',
+        bottom: '4px',
+        right: '4px',
+        backgroundColor: '#171717',
+        color: 'white',
+        zIndex: 999,
+    };
+
+    const editIconStyle = {
+        position: 'absolute',
+    };
+
     return (
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
-            <Fab sx={{position: 'fixed', bottom: '4rem', right: '4rem', bgcolor: '#171717 !important'}} color="warning" aria-label="add">
-                <CheckIcon />
+            <Fab style={fabStyle} color="warning" aria-label="add">
+                <CheckIcon style={editIconStyle}/>
             </Fab>
         </Box>
     );
