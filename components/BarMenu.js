@@ -19,7 +19,7 @@ export default function BarMenu(props) {
         <>
           {showPopup && (
             <div className='container m-0'>
-              <div className="bg-[#171717] w-5/6 rounded-2xl h-full absolute -mt-44 z-10">
+              <div className="bg-[#171717] w-5/6 rounded-2xl h-full absolute -mt-44 z-10 translate-x-6">
                 <ListMenu />
               </div>
               <div onClick={closePopup} className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 z-2"></div>
