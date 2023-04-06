@@ -7,7 +7,7 @@ export default function EditButton(props) {
         <div onClick={props.toggle} >
             <Box sx={{ '& > :not(style)': { m: 1 } }}>
                 <Fab className='fixed bottom-4 right-4 bg-[#171717]' color="warning" aria-label="add">
-                    <EditIcon />
+                    <EditIcon className='absolute'/>
                 </Fab>
             </Box>
         </div>
