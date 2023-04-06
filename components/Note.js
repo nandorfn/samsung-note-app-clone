@@ -1,4 +1,8 @@
 export default function Note(props) {
+const d = new Date();
+const options = { day: 'numeric', month: 'short' };
+const noteDate = d.toLocaleDateString('id-ID', options); 
+
     return (
         <>
             <div className="items-center">
@@ -7,7 +11,7 @@ export default function Note(props) {
                         <div className="container second-color rounded-xl p-4 h-64 text-left overflow-hidden shadow">{props.content}
                         </div>
                         <h1>{props.title}</h1>
-                        <p>28 Feb</p>
+                        <p>{noteDate}</p>
                     </div>
 
 
