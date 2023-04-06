@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Navbar from '../../components/Navbar'
 import Note from '../../components/Note'
@@ -9,6 +9,8 @@ import EditButton from '../../components/EditButton'
 
 export default function Home(props) {
   const [notes, setNotes] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
+  const [showInput, setShowInput] = useState(false);
   const notesLength = notes.length;
 
   function addNote(newNote) {
@@ -17,14 +19,32 @@ export default function Home(props) {
     });
   }
 
-  const [isClicked, setIsClicked] = useState(false);
-  const [showInput, setShowInput] = useState(false);
   function toggleInput() {
     setShowInput(!showInput);
   }
+  
   function handleClick() {
     setIsClicked(true);
   }
+  
+  useEffect(() => {
+    const storedState = localStorage.getItem('notes');
+      if (storedState) {
+      setNotes(JSON.parse(storedState))
+      } else {
+        setNotes([])
+        }
+  }, []);
+  
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      localStorage.setItem('notes', JSON.stringify(notes));
+    }, 1000);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [notes]);
+  
 
 
 
@@ -43,8 +63,8 @@ export default function Home(props) {
           />
         );
       })}
-      
-    <EditButton toggle={toggleInput}/>
+
+      <EditButton toggle={toggleInput} />
 
 
 
