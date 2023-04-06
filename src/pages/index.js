@@ -64,7 +64,7 @@ export default function Home(props) {
         );
       })}
 
-      <EditButton toggle={toggleInput} />
+      <EditButton className='absolute' toggle={toggleInput} />
 
 
 
