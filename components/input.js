@@ -5,7 +5,7 @@ import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
 import AttachFileRoundedIcon from '@mui/icons-material/AttachFileRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import Fab from '@mui/material/Fab';
-import EditIcon from '@mui/icons-material/Edit';
+import { FloatingDoneButtonSize } from './FloatingButton';
 import CheckIcon from '@mui/icons-material/CheckCircleRounded';
 
 
@@ -72,9 +72,7 @@ export default function inputForm(props) {
                     <textarea name='content' onChange={handleChange} rows={100} type="textarea" className='m-4 w-full pb-100 bg-black outline-none' value={input.content}></textarea>
                 </div>
                 <button onClick={submitNote} >
-                    <Fab className='fixed bottom-24 right-4 bg-[#171717] z-10' color="warning" aria-label="add">
-                        <CheckIcon />
-                    </Fab>
+                    <FloatingDoneButtonSize />
                 </button>
             </form>
         </div>

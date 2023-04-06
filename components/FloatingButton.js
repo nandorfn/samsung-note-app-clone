@@ -7,7 +7,7 @@ import CheckIcon from '@mui/icons-material/CheckCircleRounded';
 export function FloatingDoneButtonSize() {
     const fabStyle = {
         position: 'fixed',
-        bottom: '4px',
+        bottom: '74px',
         right: '4px',
         backgroundColor: '#171717',
         color: 'white',
