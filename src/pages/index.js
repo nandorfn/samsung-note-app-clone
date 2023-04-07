@@ -57,6 +57,7 @@ export default function Home(props) {
       {notes.map((noteItem, index) => {
         return (
           <Note
+            id={index}
             key={index}
             title={noteItem.title}
             content={noteItem.content}

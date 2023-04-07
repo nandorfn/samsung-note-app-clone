@@ -13,7 +13,6 @@ export default function BarMenu(props) {
         setShowPopup(!true);
         props.onClose();
     }
-    console.log("cek = " + showPopup)
 
     return (
         <>
